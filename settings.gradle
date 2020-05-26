@@ -1,0 +1,5 @@
+rootProject.name = 'HdminMVC'
+include 'framework'
+include 'test'
+include 'app'
+

@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'debug.icu'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+// 子模块配置
+subprojects {
+
+}
+
+

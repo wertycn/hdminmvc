@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'debug.icu'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile(project(':framework'))
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "debug.icu.HdminMVC.App"
+    }
+
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
