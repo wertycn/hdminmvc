@@ -1,7 +1,11 @@
 package debug.icu.HdminMVC.web.servlet;
 
+import debug.icu.HdminMVC.web.handler.HandlerManger;
+import debug.icu.HdminMVC.web.handler.MappingHandler;
+
 import javax.servlet.*;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 public class DispatchServlet implements Servlet {
 
@@ -87,8 +91,21 @@ public class DispatchServlet implements Servlet {
      */
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-        res.getWriter().println("Hello , My test request ");
-
+        //res.getWriter().println("Hello , My test request ");
+        // 依次判断handler能否处理请求
+        for (MappingHandler mappingHandler : HandlerManger.mappingHandlerList) {
+            try {
+                if (mappingHandler.handler(req, res)) {
+                    return;
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
