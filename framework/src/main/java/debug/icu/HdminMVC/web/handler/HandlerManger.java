@@ -2,7 +2,7 @@ package debug.icu.HdminMVC.web.handler;
 
 import debug.icu.HdminMVC.web.mvc.Controller;
 import debug.icu.HdminMVC.web.mvc.RequestParam;
-import debug.icu.HdminMVC.web.mvc.RequtstMapping;
+import debug.icu.HdminMVC.web.mvc.RequestMapping;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -34,11 +34,11 @@ public class HandlerManger {
         // 找到被RequestMapping注解的方法
         for (Method method : methods) {
             // 判断RequestMapping注解是否存在
-            if (!method.isAnnotationPresent(RequtstMapping.class)) {
+            if (!method.isAnnotationPresent(RequestMapping.class)) {
                 continue;
             }
             // 从注解属性中获取uri
-            String uri = method.getDeclaredAnnotation(RequtstMapping.class).value();
+            String uri = method.getDeclaredAnnotation(RequestMapping.class).value();
             // 所需要的参数
             List<String> paramNameList = new ArrayList<>();
             for (Parameter parameter : method.getParameters()) {

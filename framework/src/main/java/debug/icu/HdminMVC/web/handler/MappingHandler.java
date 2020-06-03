@@ -1,5 +1,7 @@
 package debug.icu.HdminMVC.web.handler;
 
+import debug.icu.HdminMVC.beans.BeanFactory;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +38,8 @@ public class MappingHandler {
         for (int i = 0; i < args.length; i++) {
             paramters[i] = req.getParameter(args[i]);
         }
-        Object ctl = controller.newInstance();
+        Object ctl = BeanFactory.getBean(controller);
+        //Object ctl = controller.newInstance();
         Object response = method.invoke(ctl, paramters);
         res.getWriter().println(response.toString());
         return true;
