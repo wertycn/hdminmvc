@@ -11,14 +11,16 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    //  引用兄弟模块
     compile(project(':framework'))
 }
 
 jar {
+    // 配置入口类
     manifest {
-        attributes "Main-Class": "debug.icu.HdminMVC.App"
+        attributes "Main-Class": "debug.icu.hdminmvc.App"
     }
-
+    // 自动递归打包
     from {
         configurations.compile.collect {
             it.isDirectory() ? it : zipTree(it)

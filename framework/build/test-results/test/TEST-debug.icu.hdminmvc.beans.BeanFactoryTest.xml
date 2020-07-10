@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="debug.icu.hdminmvc.beans.BeanFactoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-10T17:56:36" hostname="DESKTOP-9G3AJO0" time="0.001">
+  <properties/>
+  <testcase name="testFinishCreate" classname="debug.icu.hdminmvc.beans.BeanFactoryTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
